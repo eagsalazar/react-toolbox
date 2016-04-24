@@ -28,6 +28,12 @@ class CalendarDialog extends React.Component {
     display: 'months'
   };
 
+  componentWillReceiveProps (nextProps) {
+    if(!this.props.active && nextProps.active || this.props.value !== nextProps.value) {
+      this.setState({ displayTime: nextProps.value })
+    }
+  }
+
   handleCalendarChange = (value, dayClick) => {
     const state = {display: 'months', date: value};
     if (time.dateOutOfRange(value, this.props.minDate, this.props.maxDate)) {
