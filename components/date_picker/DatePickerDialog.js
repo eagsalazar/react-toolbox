@@ -29,9 +29,7 @@ class CalendarDialog extends React.Component {
   };
 
   componentWillReceiveProps (nextProps) {
-    if(!this.props.active && nextProps.active || this.props.value !== nextProps.value) {
-      this.setState({ displayTime: nextProps.value })
-    }
+    this.setState({ displayTime: nextProps.value })
   }
 
   handleCalendarChange = (value, dayClick) => {
